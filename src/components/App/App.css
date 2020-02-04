@@ -8,7 +8,6 @@ em {
   align-items: center;
   min-height: 50px;
   padding: 0.5rem 1rem;
-  /* background-image: linear-gradient(to right, #8e43e7, #00aeff); */
   background-color: #8e43e7;
   color: #fff;
   margin-bottom: 1rem;
@@ -35,15 +34,15 @@ em {
   flex: 3;
 }
 
+.ais-Hits-item:hover {
+  outline: 1px solid #c4c8d8;
+}
+
 .searchbox {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .pagination {
   margin: 2rem auto;
   text-align: center;
-}
-
-.ext-link {
-  margin-left: 0.3rem;
 }

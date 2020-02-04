@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
 import algoliasearch from 'algoliasearch/lite';
+import React, { Component } from 'react';
 import {
-  InstantSearch,
-  PoweredBy,
   Hits,
-  Stats,
-  SearchBox,
+  InstantSearch,
   Pagination,
-  Highlight,
+  PoweredBy,
+  SearchBox,
+  Stats,
 } from 'react-instantsearch-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import PropTypes from 'prop-types';
 import './App.css';
+import Hit from '../Hit/Hit';
 
 const searchClient = algoliasearch(
   'RWDUF9UWAN',
@@ -62,6 +59,34 @@ class App extends Component {
           </small>
         </header>
         <div className="container">
+          <small>
+            Un grand merci à{' '}
+            <a
+              href="https://twitter.com/PatrickRaberin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @patrickraberin
+            </a>{' '}
+            et{' '}
+            <a
+              href="https://twitter.com/PbnPierre"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @PbnPierre
+            </a>{' '}
+            pour le{' '}
+            <a
+              href="https://docs.google.com/spreadsheets/d/1KsT0n2ipMIBLT4Ajc9k0uHxwCXYZ_HaBrjVjoZz8HbE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Sheet
+            </a>{' '}
+            tenu à jour !
+          </small>
+          <hr/>
           <InstantSearch searchClient={searchClient} indexName="lddm">
             <div className="search-panel">
               <div className="search-panel__results">
@@ -74,7 +99,6 @@ class App extends Component {
                 />
                 <Stats />
                 <Hits hitComponent={Hit} />
-
                 <div className="pagination">
                   <Pagination />
                 </div>
@@ -86,46 +110,5 @@ class App extends Component {
     );
   }
 }
-
-function Hit(props) {
-  return (
-    <article className={props.hit.Type}>
-      Épisode n°{props.hit.Episode} (
-      {props.hit.Ordre === 1 ? '1er' : `${props.hit.Ordre}ème`} morceau)
-      <h1>
-        <Highlight attribute="Titre (sur Album)" hit={props.hit} />
-      </h1>
-      <hr />
-      <p>
-        Jeu :{' '}
-        <b>
-          <Highlight attribute="Jeu" hit={props.hit} />
-        </b>
-      </p>
-      <p>
-        Compositeur / Interprète :{' '}
-        <b>
-          <Highlight attribute="Compositeur / Interprète" hit={props.hit} />
-        </b>
-        {props.hit['Liens web'] ? (
-          <a
-            href={props.hit['Liens web']}
-            className="ext-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faExternalLinkAlt} />{' '}
-          </a>
-        ) : (
-          ''
-        )}
-      </p>
-    </article>
-  );
-}
-
-Hit.propTypes = {
-  hit: PropTypes.object.isRequired,
-};
 
 export default App;
