@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {
   InfiniteHits,
   InstantSearch,
+  MenuSelect,
   PoweredBy,
   SearchBox,
   Stats,
@@ -97,6 +98,21 @@ class App extends Component {
                   }}
                 />
                 <PoweredBy translations={{ searchBy: 'Recherche par' }} />
+                <MenuSelect
+                  attribute="Type"
+                  transformItems={items =>
+                    items.map(item => ({
+                      ...item,
+                      label:
+                        // Capitalize the first letter of each type
+                        item.label.charAt(0).toUpperCase() +
+                        item.label.slice(1),
+                    }))
+                  }
+                  translations={{
+                    seeAllOption: 'Type de morceau',
+                  }}
+                />
                 <Stats
                   translations={{
                     stats(nbHits, timeSpentMS) {

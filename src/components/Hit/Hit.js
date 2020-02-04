@@ -39,6 +39,9 @@ function Hit(props) {
           ''
         )}
       </p>
+      <p>
+        Type : <b>{props.hit.Type.charAt(0).toUpperCase() + props.hit.Type.slice(1)}</b>
+      </p>
     </article>
   );
 }
