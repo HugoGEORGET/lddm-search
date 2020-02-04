@@ -97,11 +97,13 @@ class App extends Component {
                   }}
                 />
                 <PoweredBy translations={{ searchBy: 'Recherche par' }} />
-                <Stats translations={{
-                  stats(nbHits, timeSpentMS) {
-                    return `${nbHits} morceaux trouvés en ${timeSpentMS}ms`
-                  }
-                }}/>
+                <Stats
+                  translations={{
+                    stats(nbHits, timeSpentMS) {
+                      return `${nbHits} morceaux trouvés en ${timeSpentMS}ms`;
+                    },
+                  }}
+                />
                 <InfiniteHits
                   hitComponent={Hit}
                   translations={{ loadMore: 'Charger plus de morceaux' }}
