@@ -1,15 +1,14 @@
 import algoliasearch from 'algoliasearch/lite';
 import React, { Component } from 'react';
 import {
-  Hits,
+  InfiniteHits,
   InstantSearch,
-  Pagination,
   PoweredBy,
   SearchBox,
   Stats,
 } from 'react-instantsearch-dom';
-import './App.css';
 import Hit from '../Hit/Hit';
+import './App.css';
 
 const searchClient = algoliasearch(
   'RWDUF9UWAN',
@@ -59,7 +58,7 @@ class App extends Component {
           </small>
         </header>
         <div className="container">
-          <small>
+          <b>
             Un grand merci à{' '}
             <a
               href="https://twitter.com/PatrickRaberin"
@@ -85,23 +84,28 @@ class App extends Component {
               Google Sheet
             </a>{' '}
             tenu à jour !
-          </small>
-          <hr/>
+          </b>
+          <hr />
           <InstantSearch searchClient={searchClient} indexName="lddm">
             <div className="search-panel">
               <div className="search-panel__results">
-                <PoweredBy />
                 <SearchBox
+                  autoFocus
                   className="searchbox"
                   translations={{
-                    placeholder: 'Recherchez un morceau...',
+                    placeholder: 'Cherchez un morceau, jeu, compositeur...',
                   }}
                 />
-                <Stats />
-                <Hits hitComponent={Hit} />
-                <div className="pagination">
-                  <Pagination />
-                </div>
+                <PoweredBy translations={{ searchBy: 'Recherche par' }} />
+                <Stats translations={{
+                  stats(nbHits, timeSpentMS) {
+                    return `${nbHits} morceaux trouvés en ${timeSpentMS}ms`
+                  }
+                }}/>
+                <InfiniteHits
+                  hitComponent={Hit}
+                  translations={{ loadMore: 'Charger plus de morceaux' }}
+                />
               </div>
             </div>
           </InstantSearch>

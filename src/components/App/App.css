@@ -10,7 +10,6 @@ em {
   padding: 0.5rem 1rem;
   background-color: #8e43e7;
   color: #fff;
-  margin-bottom: 1rem;
 }
 
 .header a {
@@ -34,12 +33,20 @@ em {
   flex: 3;
 }
 
-.ais-Hits-item:hover {
+.ais-InfiniteHits-item:hover {
   outline: 1px solid #c4c8d8;
 }
 
 .searchbox {
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.searchbox input {
+  height: 3rem;
+}
+
+.ais-PoweredBy {
+  justify-content: flex-end;
 }
 
 .pagination {
