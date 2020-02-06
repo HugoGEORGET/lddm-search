@@ -2,6 +2,8 @@
 
 _This project was generated with [create-instantsearch-app](https://github.com/algolia/create-instantsearch-app) by [Algolia](https://algolia.com)._
 
+This application allow you to search the tracks that were played in the french VGM podcast Les Démons du MIDI.
+
 ## Get started
 
 To run this project locally, install the dependencies and run the local server:
@@ -18,4 +20,4 @@ yarn
 yarn start
 ```
 
-Open http://localhost:3000 to see your app.
+Open <http://localhost:3000> to see your app.
