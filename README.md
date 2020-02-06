@@ -1,5 +1,7 @@
 # lddm-search
 
+[![Build Status](https://travis-ci.org/HugoGEORGET/lddm-search.svg?branch=master)](https://travis-ci.org/HugoGEORGET/lddm-search)
+
 _This project was generated with [create-instantsearch-app](https://github.com/algolia/create-instantsearch-app) by [Algolia](https://algolia.com)._
 
 This application allow you to search the tracks that were played in the french VGM podcast Les Démons du MIDI.
