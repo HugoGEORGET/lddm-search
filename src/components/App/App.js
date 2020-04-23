@@ -58,75 +58,80 @@ class App extends Component {
             </a>
           </small>
         </header>
-        <div className="container">
-          <b>
-            Un grand merci à{' '}
-            <a
-              href="https://twitter.com/PatrickRaberin"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @patrickraberin
-            </a>{' '}
-            et{' '}
-            <a
-              href="https://twitter.com/PbnPierre"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @PbnPierre
-            </a>{' '}
-            pour le{' '}
-            <a
-              href="https://docs.google.com/spreadsheets/d/1KsT0n2ipMIBLT4Ajc9k0uHxwCXYZ_HaBrjVjoZz8HbE"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Google Sheet
-            </a>{' '}
-            tenu à jour !
-          </b>
-          <hr />
-          <InstantSearch searchClient={searchClient} indexName="lddm">
-            <div className="search-panel">
-              <div className="search-panel__results">
-                <SearchBox
-                  autoFocus
-                  className="searchbox"
-                  translations={{
-                    placeholder: 'Cherchez un morceau, jeu, compositeur...',
-                  }}
-                />
-                <PoweredBy translations={{ searchBy: 'Recherche par' }} />
-                <MenuSelect
-                  attribute="Type"
-                  transformItems={items =>
-                    items.map(item => ({
-                      ...item,
-                      label:
-                        // Capitalize the first letter of each type
-                        item.label.charAt(0).toUpperCase() +
-                        item.label.slice(1),
-                    }))
-                  }
-                  translations={{
-                    seeAllOption: 'Type de morceau',
-                  }}
-                />
-                <Stats
-                  translations={{
-                    stats(nbHits, timeSpentMS) {
-                      return `${nbHits} morceaux trouvés en ${timeSpentMS}ms`;
-                    },
-                  }}
-                />
-                <InfiniteHits
-                  hitComponent={Hit}
-                  translations={{ loadMore: 'Charger plus de morceaux' }}
-                />
+        <div className="pattern-cross-dots-xl" style={{ color: 'blue' }}>
+          <div
+            className="container pattern-cross-dots-xl"
+            style={{ color: 'initial' }}
+          >
+            <b>
+              Un grand merci à{' '}
+              <a
+                href="https://twitter.com/PatrickRaberin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @patrickraberin
+              </a>{' '}
+              et{' '}
+              <a
+                href="https://twitter.com/PbnPierre"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @PbnPierre
+              </a>{' '}
+              pour le{' '}
+              <a
+                href="https://docs.google.com/spreadsheets/d/1KsT0n2ipMIBLT4Ajc9k0uHxwCXYZ_HaBrjVjoZz8HbE"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Sheet
+              </a>{' '}
+              tenu à jour !
+            </b>
+            <hr />
+            <InstantSearch searchClient={searchClient} indexName="lddm">
+              <div className="search-panel">
+                <div className="search-panel__results">
+                  <SearchBox
+                    autoFocus
+                    className="searchbox"
+                    translations={{
+                      placeholder: 'Cherchez un morceau, jeu, compositeur...',
+                    }}
+                  />
+                  <PoweredBy translations={{ searchBy: 'Recherche par' }} />
+                  <MenuSelect
+                    attribute="Type"
+                    transformItems={items =>
+                      items.map(item => ({
+                        ...item,
+                        label:
+                          // Capitalize the first letter of each type
+                          item.label.charAt(0).toUpperCase() +
+                          item.label.slice(1),
+                      }))
+                    }
+                    translations={{
+                      seeAllOption: 'Type de morceau',
+                    }}
+                  />
+                  <Stats
+                    translations={{
+                      stats(nbHits, timeSpentMS) {
+                        return `${nbHits} morceaux trouvés en ${timeSpentMS}ms`;
+                      },
+                    }}
+                  />
+                  <InfiniteHits
+                    hitComponent={Hit}
+                    translations={{ loadMore: 'Charger plus de morceaux' }}
+                  />
+                </div>
               </div>
-            </div>
-          </InstantSearch>
+            </InstantSearch>
+          </div>
         </div>
       </>
     );
