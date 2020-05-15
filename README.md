@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/HugoGEORGET/lddm-search) 
+
 # lddm-search
 
 [![Build Status](https://travis-ci.org/HugoGEORGET/lddm-search.svg?branch=master)](https://travis-ci.org/HugoGEORGET/lddm-search)
